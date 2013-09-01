@@ -18,27 +18,16 @@
 		AEB12ABC17C90F1C00C0B74F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEB12ABB17C90F1C00C0B74F /* Default-568h@2x.png */; };
 		AEB12ABF17C90F1C00C0B74F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEB12ABD17C90F1C00C0B74F /* MainStoryboard.storyboard */; };
 		AEB12AC217C90F1C00C0B74F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB12AC117C90F1C00C0B74F /* ViewController.m */; };
-		AEB12ACA17C90F1C00C0B74F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB12AC917C90F1C00C0B74F /* SenTestingKit.framework */; };
-		AEB12ACB17C90F1C00C0B74F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB12AA517C90F1C00C0B74F /* UIKit.framework */; };
-		AEB12ACC17C90F1C00C0B74F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB12AA717C90F1C00C0B74F /* Foundation.framework */; };
-		AEB12AD417C90F1C00C0B74F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEB12AD217C90F1C00C0B74F /* InfoPlist.strings */; };
-		AEB12AD717C90F1C00C0B74F /* AvCamTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB12AD617C90F1C00C0B74F /* AvCamTestTests.m */; };
 		AEB12AE117C90F4800C0B74F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB12AE017C90F4800C0B74F /* AVFoundation.framework */; };
 		AEB12AE417C9F03B00C0B74F /* UIImage+scaleToSize.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB12AE317C9F03B00C0B74F /* UIImage+scaleToSize.m */; };
 		AEB9884817D1F220007DBFD0 /* Sonickle.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB9884717D1F220007DBFD0 /* Sonickle.m */; };
 		AEB9884B17D22ABC007DBFD0 /* SonicklePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB9884A17D22ABC007DBFD0 /* SonicklePlayerViewController.m */; };
 		AEB9884E17D22ECC007DBFD0 /* SonickleGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB9884D17D22ECC007DBFD0 /* SonickleGalleryViewController.m */; };
+		AEB9885117D3300D007DBFD0 /* SonickleProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB9885017D3300D007DBFD0 /* SonickleProxy.m */; };
+		AEB9885317D39642007DBFD0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB9885217D39642007DBFD0 /* AudioToolbox.framework */; };
+		AEB9886317D39C21007DBFD0 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB9886217D39C21007DBFD0 /* CoreAudio.framework */; };
+		AEB9886517D39C3C007DBFD0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB9886417D39C3C007DBFD0 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		AEB12ACD17C90F1C00C0B74F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AEB12A9A17C90F1C00C0B74F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AEB12AA117C90F1C00C0B74F;
-			remoteInfo = AvCamTest;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		AEB12AA217C90F1C00C0B74F /* AvCamTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvCamTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,7 +46,6 @@
 		AEB12ABE17C90F1C00C0B74F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		AEB12AC017C90F1C00C0B74F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		AEB12AC117C90F1C00C0B74F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		AEB12AC817C90F1C00C0B74F /* AvCamTestTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvCamTestTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB12AC917C90F1C00C0B74F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		AEB12AD117C90F1C00C0B74F /* AvCamTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AvCamTestTests-Info.plist"; sourceTree = "<group>"; };
 		AEB12AD317C90F1C00C0B74F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -72,6 +60,11 @@
 		AEB9884A17D22ABC007DBFD0 /* SonicklePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonicklePlayerViewController.m; sourceTree = "<group>"; };
 		AEB9884C17D22ECC007DBFD0 /* SonickleGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonickleGalleryViewController.h; sourceTree = "<group>"; };
 		AEB9884D17D22ECC007DBFD0 /* SonickleGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonickleGalleryViewController.m; sourceTree = "<group>"; };
+		AEB9884F17D3300D007DBFD0 /* SonickleProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonickleProxy.h; sourceTree = "<group>"; };
+		AEB9885017D3300D007DBFD0 /* SonickleProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonickleProxy.m; sourceTree = "<group>"; };
+		AEB9885217D39642007DBFD0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AEB9886217D39C21007DBFD0 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		AEB9886417D39C3C007DBFD0 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,20 +72,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEB9886517D39C3C007DBFD0 /* CoreFoundation.framework in Frameworks */,
+				AEB9886317D39C21007DBFD0 /* CoreAudio.framework in Frameworks */,
+				AEB9885317D39642007DBFD0 /* AudioToolbox.framework in Frameworks */,
+				AEB12AA817C90F1C00C0B74F /* Foundation.framework in Frameworks */,
 				AEB12AE117C90F4800C0B74F /* AVFoundation.framework in Frameworks */,
 				AEB12AA617C90F1C00C0B74F /* UIKit.framework in Frameworks */,
-				AEB12AA817C90F1C00C0B74F /* Foundation.framework in Frameworks */,
 				AEB12AAA17C90F1C00C0B74F /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AEB12AC417C90F1C00C0B74F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AEB12ACA17C90F1C00C0B74F /* SenTestingKit.framework in Frameworks */,
-				AEB12ACB17C90F1C00C0B74F /* UIKit.framework in Frameworks */,
-				AEB12ACC17C90F1C00C0B74F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				AEB12AA217C90F1C00C0B74F /* AvCamTest.app */,
-				AEB12AC817C90F1C00C0B74F /* AvCamTestTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,6 +106,9 @@
 		AEB12AA417C90F1C00C0B74F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEB9886417D39C3C007DBFD0 /* CoreFoundation.framework */,
+				AEB9886217D39C21007DBFD0 /* CoreAudio.framework */,
+				AEB9885217D39642007DBFD0 /* AudioToolbox.framework */,
 				AEB12AE017C90F4800C0B74F /* AVFoundation.framework */,
 				AEB12AA517C90F1C00C0B74F /* UIKit.framework */,
 				AEB12AA717C90F1C00C0B74F /* Foundation.framework */,
@@ -145,6 +133,8 @@
 				AEB12AE317C9F03B00C0B74F /* UIImage+scaleToSize.m */,
 				AEB9884617D1F220007DBFD0 /* Sonickle.h */,
 				AEB9884717D1F220007DBFD0 /* Sonickle.m */,
+				AEB9884F17D3300D007DBFD0 /* SonickleProxy.h */,
+				AEB9885017D3300D007DBFD0 /* SonickleProxy.m */,
 				AEB9884C17D22ECC007DBFD0 /* SonickleGalleryViewController.h */,
 				AEB9884D17D22ECC007DBFD0 /* SonickleGalleryViewController.m */,
 			);
@@ -204,25 +194,6 @@
 			productReference = AEB12AA217C90F1C00C0B74F /* AvCamTest.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AEB12AC717C90F1C00C0B74F /* AvCamTestTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AEB12ADD17C90F1C00C0B74F /* Build configuration list for PBXNativeTarget "AvCamTestTests" */;
-			buildPhases = (
-				AEB12AC317C90F1C00C0B74F /* Sources */,
-				AEB12AC417C90F1C00C0B74F /* Frameworks */,
-				AEB12AC517C90F1C00C0B74F /* Resources */,
-				AEB12AC617C90F1C00C0B74F /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AEB12ACE17C90F1C00C0B74F /* PBXTargetDependency */,
-			);
-			name = AvCamTestTests;
-			productName = AvCamTestTests;
-			productReference = AEB12AC817C90F1C00C0B74F /* AvCamTestTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -245,7 +216,6 @@
 			projectRoot = "";
 			targets = (
 				AEB12AA117C90F1C00C0B74F /* AvCamTest */,
-				AEB12AC717C90F1C00C0B74F /* AvCamTestTests */,
 			);
 		};
 /* End PBXProject section */
@@ -263,31 +233,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AEB12AC517C90F1C00C0B74F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AEB12AD417C90F1C00C0B74F /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		AEB12AC617C90F1C00C0B74F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AEB12A9E17C90F1C00C0B74F /* Sources */ = {
@@ -301,26 +247,11 @@
 				AEB9884817D1F220007DBFD0 /* Sonickle.m in Sources */,
 				AEB9884B17D22ABC007DBFD0 /* SonicklePlayerViewController.m in Sources */,
 				AEB9884E17D22ECC007DBFD0 /* SonickleGalleryViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AEB12AC317C90F1C00C0B74F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AEB12AD717C90F1C00C0B74F /* AvCamTestTests.m in Sources */,
+				AEB9885117D3300D007DBFD0 /* SonickleProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		AEB12ACE17C90F1C00C0B74F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AEB12AA117C90F1C00C0B74F /* AvCamTest */;
-			targetProxy = AEB12ACD17C90F1C00C0B74F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AEB12AAE17C90F1C00C0B74F /* InfoPlist.strings */ = {
@@ -412,7 +343,15 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AvCamTest/AvCamTest-Prefix.pch";
 				INFOPLIST_FILE = "AvCamTest/AvCamTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AvCamTest/AudioConverterKit/3rd-party/lib\"",
+					"\"$(SRCROOT)/AvCamTest/AudioConverterKit\"",
+				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s i386";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -423,42 +362,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AvCamTest/AvCamTest-Prefix.pch";
 				INFOPLIST_FILE = "AvCamTest/AvCamTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AvCamTest/AudioConverterKit/3rd-party/lib\"",
+					"\"$(SRCROOT)/AvCamTest/AudioConverterKit\"",
+				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s i386";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		AEB12ADE17C90F1C00C0B74F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AvCamTest.app/AvCamTest";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AvCamTest/AvCamTest-Prefix.pch";
-				INFOPLIST_FILE = "AvCamTestTests/AvCamTestTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		AEB12ADF17C90F1C00C0B74F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AvCamTest.app/AvCamTest";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AvCamTest/AvCamTest-Prefix.pch";
-				INFOPLIST_FILE = "AvCamTestTests/AvCamTestTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -479,15 +392,6 @@
 			buildConfigurations = (
 				AEB12ADB17C90F1C00C0B74F /* Debug */,
 				AEB12ADC17C90F1C00C0B74F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AEB12ADD17C90F1C00C0B74F /* Build configuration list for PBXNativeTarget "AvCamTestTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AEB12ADE17C90F1C00C0B74F /* Debug */,
-				AEB12ADF17C90F1C00C0B74F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

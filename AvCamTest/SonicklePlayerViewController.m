@@ -36,13 +36,31 @@
     }
 }
 
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return self.imageView;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
 	// Do any additional setup after loading the view.
+    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    [self.scrollView setContentSize:self.view.frame.size];
+    [self.scrollView setMinimumZoomScale:0.1];
+    [self.scrollView setMaximumZoomScale:5.0];
+    [self.scrollView setDelegate:self];
+    [self.scrollView setContentMode:UIViewContentModeCenter];
+    [self.view addSubview:self.scrollView];
+    
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height)];
-    [self.imageView setContentMode:UIViewContentModeScaleAspectFill];
-    [self.view addSubview:self.imageView];
+    [self.imageView.layer setShadowColor:[UIColor blackColor].CGColor];
+    [self.imageView.layer setShadowOffset:CGSizeMake(0.0, 0.0)];
+    [self.imageView.layer setShadowOpacity:1.0];
+    [self.imageView.layer setShadowRadius:5.0];
+    [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    [self.scrollView addSubview:self.imageView];
     
     UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playAudio)];
     [self.view addGestureRecognizer:tapGesture];
@@ -77,6 +95,8 @@
 - (void) configureViews
 {
     [self.imageView setImage:self.sonickle.image];
+    [self.imageView.layer setRasterizationScale:2.0];
+    [self.imageView.layer setShouldRasterize:YES];
 }
 
 

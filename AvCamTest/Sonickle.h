@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #define SonicklesUserDefaultsKey @"SonicklesUserDefaultsKey"
-
+#import "UIImage+scaleToSize.h"
 
 @interface Sonickle : NSObject
 
@@ -16,7 +16,7 @@
 + (Sonickle*) sonickleFromDictionary:(NSDictionary*)dictionary;
 
 + (Sonickle*) readFromFile:(NSString*)fileName;
-+ (Sonickle*) sonickleWithImage:(UIImage*)image andSoundURL:(NSURL*)soundUrl withId:(NSString*)sonickleId;
+
 
 + (Sonickle*) sonickleWithImage:(UIImage*)image andSound:(NSData*)sound withId:(NSString*)sonickleId;
 
@@ -25,9 +25,10 @@
 
 - (id) initWithImage:(UIImage*)image andSound:(NSData*)sound withId:(NSString*)sonickleId;
 
-@property (readonly) NSString* sonickleId;
-@property (readonly) UIImage* image;
-@property (readonly) NSData* sound;
+@property (nonatomic) NSString* sonickleId;
+@property (nonatomic) UIImage* image;
+@property (nonatomic) NSData* sound;
+@property (nonatomic) UIImage* thumbnail;
 
 
 - (void) saveToFile;

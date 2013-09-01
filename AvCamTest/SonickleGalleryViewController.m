@@ -7,7 +7,7 @@
 //
 
 #import "SonickleGalleryViewController.h"
-#import "Sonickle.h"
+#import "SonickleProxy.h"
 #import "SonicklePlayerViewController.h"
 
 @interface SonickleThumbail : UIImageView
@@ -24,7 +24,7 @@
 {
     if(self = [super init]){
         self.sonickle = sonickle;
-        self.image = sonickle.image;
+        self.image = sonickle.thumbnail;
     }
     return self;
 }
@@ -65,20 +65,29 @@
     
     
     NSArray* array = [[NSUserDefaults standardUserDefaults] objectForKey:SonicklesUserDefaultsKey];
+    
     for (int i=0; i < array.count; i++) {
         NSString* fileName = [array objectAtIndex:i];
-        Sonickle* sonickle = [Sonickle sonickleFromDictionary:[NSDictionary dictionaryWithContentsOfFile:fileName]];
-        SonickleThumbail* thumbnail = [[SonickleThumbail alloc] initWithSonickle:sonickle];
-        [thumbnail setFrame:CGRectMake((i%3) * [self thumbnailSize].width, (i/3) * [self thumbnailSize].height, [self thumbnailSize].width, [self thumbnailSize].height)];
-        [self.view addSubview:thumbnail];
-        thumbnail.tag = i;
-        
-        [thumbnail setUserInteractionEnabled:YES];
-        UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openSonickle:)];
-        [thumbnail addGestureRecognizer:gesture];
+        [[[NSThread alloc] initWithTarget:self selector:@selector(generateThumbnailViewWithParams:) object:@[fileName,[NSNumber numberWithInt:i]]] start];
     }
     
 }
+
+- (void) generateThumbnailViewWithParams:(NSArray*)params
+{
+    NSString* fileName = [params objectAtIndex:0];
+    int i = [[params objectAtIndex:1] intValue];
+    
+    Sonickle* sonickle = [[SonickleProxy alloc] initWithSonickleFileName:fileName];
+    SonickleThumbail* thumbnail = [[SonickleThumbail alloc] initWithSonickle:sonickle];
+    [thumbnail setFrame:CGRectMake((i%3) * [self thumbnailSize].width, (i/3) * [self thumbnailSize].height, [self thumbnailSize].width, [self thumbnailSize].height)];
+    [self.view addSubview:thumbnail];
+    thumbnail.tag = i;
+    [thumbnail setUserInteractionEnabled:YES];
+    UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openSonickle:)];
+    [thumbnail addGestureRecognizer:gesture];
+}
+
 
 - (void) goBack
 {

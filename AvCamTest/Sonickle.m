@@ -49,7 +49,7 @@
     NSString* fileName = NSHomeDirectory();
     fileName = [fileName stringByAppendingPathComponent:@"Documents"];
     fileName = [fileName stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.snc",self.sonickleId]];
-    NSLog(@"fileName: %@",fileName);
+
     
     NSMutableArray* array = [[NSUserDefaults standardUserDefaults] objectForKey:SonicklesUserDefaultsKey];
     if(array == nil){
@@ -60,6 +60,12 @@
     
     NSDictionary* file = [self dictionaryFromSonickle];
     [file writeToFile:fileName atomically:YES];
+    
+    NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:fileName error:nil];
+    NSNumber *fileSizeNumber = [fileAttributes objectForKey:NSFileSize];
+//    long long fileSize = [fileSizeNumber longLongValue];
+    
+    NSLog(@"fileName: %@\nfileSize: %@",fileName,fileSizeNumber);
 }
 
 

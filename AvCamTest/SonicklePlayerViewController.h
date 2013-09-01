@@ -11,10 +11,10 @@
 #import <AVFoundation/AVFoundation.h>
 #import "Sonickle.h"
 
-@interface SonicklePlayerViewController : UIViewController <AVAudioPlayerDelegate>
+@interface SonicklePlayerViewController : UIViewController <AVAudioPlayerDelegate,UIScrollViewDelegate>
 
 @property (nonatomic) Sonickle* sonickle;
-
+@property UIScrollView* scrollView;
 @property UIImageView* imageView;
 
 @end

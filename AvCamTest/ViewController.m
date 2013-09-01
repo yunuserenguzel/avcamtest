@@ -13,7 +13,7 @@
 #import "SonickleGalleryViewController.h"
 
 #define TempSoundFileName @"sound.caf"
-
+#define TempConvertedSoundFileName @"converted_sound.caf"
 /*
  http://www.tekritisoftware.com/convert-caf-to-mp3-in-iOS
  http://lame.sourceforge.net/
@@ -35,11 +35,16 @@ typedef void (^ Block)();
     UIActivityIndicatorView* activityIndicator;
     
     AVAudioRecorder *audioRecorder;
-
     
     NSInteger tapIndex;
     
     Sonickle* lastCreatedSonickle;
+    
+    CFURLRef sourceURL;
+    CFURLRef destinationURL;
+    OSType   outputFormat;
+    Float64  sampleRate;
+
 }
 - (void)viewDidLoad
 {
@@ -76,6 +81,8 @@ typedef void (^ Block)();
     
 }
 
+
+
 - (void) openGallery
 {
     [self presentViewController:[[SonickleGalleryViewController alloc] init] animated:YES completion:nil];
@@ -89,6 +96,23 @@ typedef void (^ Block)();
 - (void) viewDidDisappear:(BOOL)animated
 {
     [session stopRunning];
+}
+
+- (NSURL*) tempConvertedSoundFileUrl
+{
+    
+    NSArray *dirPaths;
+    NSString *docsDir;
+    
+    dirPaths = NSSearchPathForDirectoriesInDomains(
+                                                   NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = [dirPaths objectAtIndex:0];
+    NSString *soundFilePath = [docsDir
+                               stringByAppendingPathComponent:TempConvertedSoundFileName];
+    
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    
+    return soundFileURL;
 }
 
 - (NSURL*) tempSoundFileUrl
@@ -189,41 +213,18 @@ typedef void (^ Block)();
          if(error == nil){
              [session stopRunning];
              NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
-//             image = rotate(image, UIImageOrientationLeft);
-             
              UIImage* image = [UIImage imageWithData:imageData];
              NSLog(@"w:%f, h:%f",image.size.width,image.size.height);
+             
              NSData* soundData = [NSData dataWithContentsOfURL:[self tempSoundFileUrl]];
+             
+             image = [image imageByScalingAndCroppingForSize:CGSizeMake(600.0, 800.0)];
              
              lastCreatedSonickle = [Sonickle sonickleWithImage:image andSound:soundData withId:[NSString stringWithFormat:@"sonickle%f",[NSDate timeIntervalSinceReferenceDate]]];
              
              [lastCreatedSonickle saveToFile];
              
-//             NSString* imageName = [NSString stringWithFormat:@"%.0f.jpg",([NSDate timeIntervalSinceReferenceDate]*1000)];
-//             NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-//             NSString *folderPath = [documentsDirectory stringByAppendingPathComponent:@"Test_Captures"];
-//             
-//             [[NSFileManager defaultManager] createDirectoryAtPath:folderPath
-//                                       withIntermediateDirectories:NO
-//                                                        attributes:nil
-//                                                             error:&error];
-//             NSString* imagePath = [folderPath stringByAppendingPathComponent:imageName];
-//             [UIImageJPEGRepresentation(image, 1.0) writeToFile:imagePath atomically:YES];
-//             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-             
-             
-             
              [self NSThreadedBlock:^{
-//                 imageView.alpha = 0.0;
-//                 imageView.transform = CGAffineTransformMakeScale(0.5, 0.5);
-////                 [imageView setImage:[image imageByScalingAndCroppingForSize:self.view.frame.size]];
-//                 [imageView setImage:image];
-//                 [UIView animateWithDuration:0.5 animations:^{
-//                     imageView.alpha = 1.0;
-//                     imageView.transform = CGAffineTransformMakeScale(1.0, 1.0);
-//                 } completion:^(BOOL finished) {
-//                     [self playAudio];
-//                 }];
                  [activityIndicator stopAnimating];
                  SonicklePlayerViewController* player = [[SonicklePlayerViewController alloc] init];
                  [player setSonickle:lastCreatedSonickle];
@@ -334,5 +335,25 @@ typedef void (^ Block)();
 {
     NSLog(@"Encode Error occurred");
 }
+
+//
+//
+//- (void)convertAudio
+//{
+//    OSStatus error = DoConvertFile(sourceURL, destinationURL, outputFormat, sampleRate);
+//}
+//
+//- (CFURLRef) sourceSoundFileUrl
+//{
+//    NSString* source = [self tempSoundFileUrl].path;
+//    sourceURL = CFURLCreateWithFileSystemPath(kCFAllocatorDefault, (CFStringRef)source, kCFURLPOSIXPathStyle, false);
+//}
+//
+//- (CFURLRef) convertedSoundFileUrl
+//{
+//    NSString* source = [self tempConvertedSoundFileUrl].path;
+//    sourceURL = CFURLCreateWithFileSystemPath(kCFAllocatorDefault, (CFStringRef)source, kCFURLPOSIXPathStyle, false);
+//}
+
 
 @end
