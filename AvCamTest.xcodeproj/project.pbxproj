@@ -1,0 +1,498 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AEB12AA617C90F1C00C0B74F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB12AA517C90F1C00C0B74F /* UIKit.framework */; };
+		AEB12AA817C90F1C00C0B74F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB12AA717C90F1C00C0B74F /* Foundation.framework */; };
+		AEB12AAA17C90F1C00C0B74F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB12AA917C90F1C00C0B74F /* CoreGraphics.framework */; };
+		AEB12AB017C90F1C00C0B74F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEB12AAE17C90F1C00C0B74F /* InfoPlist.strings */; };
+		AEB12AB217C90F1C00C0B74F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB12AB117C90F1C00C0B74F /* main.m */; };
+		AEB12AB617C90F1C00C0B74F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB12AB517C90F1C00C0B74F /* AppDelegate.m */; };
+		AEB12AB817C90F1C00C0B74F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AEB12AB717C90F1C00C0B74F /* Default.png */; };
+		AEB12ABA17C90F1C00C0B74F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEB12AB917C90F1C00C0B74F /* Default@2x.png */; };
+		AEB12ABC17C90F1C00C0B74F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEB12ABB17C90F1C00C0B74F /* Default-568h@2x.png */; };
+		AEB12ABF17C90F1C00C0B74F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEB12ABD17C90F1C00C0B74F /* MainStoryboard.storyboard */; };
+		AEB12AC217C90F1C00C0B74F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB12AC117C90F1C00C0B74F /* ViewController.m */; };
+		AEB12ACA17C90F1C00C0B74F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB12AC917C90F1C00C0B74F /* SenTestingKit.framework */; };
+		AEB12ACB17C90F1C00C0B74F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB12AA517C90F1C00C0B74F /* UIKit.framework */; };
+		AEB12ACC17C90F1C00C0B74F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB12AA717C90F1C00C0B74F /* Foundation.framework */; };
+		AEB12AD417C90F1C00C0B74F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEB12AD217C90F1C00C0B74F /* InfoPlist.strings */; };
+		AEB12AD717C90F1C00C0B74F /* AvCamTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB12AD617C90F1C00C0B74F /* AvCamTestTests.m */; };
+		AEB12AE117C90F4800C0B74F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB12AE017C90F4800C0B74F /* AVFoundation.framework */; };
+		AEB12AE417C9F03B00C0B74F /* UIImage+scaleToSize.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB12AE317C9F03B00C0B74F /* UIImage+scaleToSize.m */; };
+		AEB9884817D1F220007DBFD0 /* Sonickle.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB9884717D1F220007DBFD0 /* Sonickle.m */; };
+		AEB9884B17D22ABC007DBFD0 /* SonicklePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB9884A17D22ABC007DBFD0 /* SonicklePlayerViewController.m */; };
+		AEB9884E17D22ECC007DBFD0 /* SonickleGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB9884D17D22ECC007DBFD0 /* SonickleGalleryViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AEB12ACD17C90F1C00C0B74F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEB12A9A17C90F1C00C0B74F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AEB12AA117C90F1C00C0B74F;
+			remoteInfo = AvCamTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AEB12AA217C90F1C00C0B74F /* AvCamTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvCamTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEB12AA517C90F1C00C0B74F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AEB12AA717C90F1C00C0B74F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AEB12AA917C90F1C00C0B74F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AEB12AAD17C90F1C00C0B74F /* AvCamTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AvCamTest-Info.plist"; sourceTree = "<group>"; };
+		AEB12AAF17C90F1C00C0B74F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AEB12AB117C90F1C00C0B74F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AEB12AB317C90F1C00C0B74F /* AvCamTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AvCamTest-Prefix.pch"; sourceTree = "<group>"; };
+		AEB12AB417C90F1C00C0B74F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AEB12AB517C90F1C00C0B74F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AEB12AB717C90F1C00C0B74F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		AEB12AB917C90F1C00C0B74F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		AEB12ABB17C90F1C00C0B74F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		AEB12ABE17C90F1C00C0B74F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		AEB12AC017C90F1C00C0B74F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AEB12AC117C90F1C00C0B74F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AEB12AC817C90F1C00C0B74F /* AvCamTestTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvCamTestTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEB12AC917C90F1C00C0B74F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		AEB12AD117C90F1C00C0B74F /* AvCamTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AvCamTestTests-Info.plist"; sourceTree = "<group>"; };
+		AEB12AD317C90F1C00C0B74F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AEB12AD517C90F1C00C0B74F /* AvCamTestTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AvCamTestTests.h; sourceTree = "<group>"; };
+		AEB12AD617C90F1C00C0B74F /* AvCamTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AvCamTestTests.m; sourceTree = "<group>"; };
+		AEB12AE017C90F4800C0B74F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AEB12AE217C9F03B00C0B74F /* UIImage+scaleToSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+scaleToSize.h"; sourceTree = "<group>"; };
+		AEB12AE317C9F03B00C0B74F /* UIImage+scaleToSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+scaleToSize.m"; sourceTree = "<group>"; };
+		AEB9884617D1F220007DBFD0 /* Sonickle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sonickle.h; sourceTree = "<group>"; };
+		AEB9884717D1F220007DBFD0 /* Sonickle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sonickle.m; sourceTree = "<group>"; };
+		AEB9884917D22ABC007DBFD0 /* SonicklePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonicklePlayerViewController.h; sourceTree = "<group>"; };
+		AEB9884A17D22ABC007DBFD0 /* SonicklePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonicklePlayerViewController.m; sourceTree = "<group>"; };
+		AEB9884C17D22ECC007DBFD0 /* SonickleGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonickleGalleryViewController.h; sourceTree = "<group>"; };
+		AEB9884D17D22ECC007DBFD0 /* SonickleGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonickleGalleryViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AEB12A9F17C90F1C00C0B74F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEB12AE117C90F4800C0B74F /* AVFoundation.framework in Frameworks */,
+				AEB12AA617C90F1C00C0B74F /* UIKit.framework in Frameworks */,
+				AEB12AA817C90F1C00C0B74F /* Foundation.framework in Frameworks */,
+				AEB12AAA17C90F1C00C0B74F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEB12AC417C90F1C00C0B74F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEB12ACA17C90F1C00C0B74F /* SenTestingKit.framework in Frameworks */,
+				AEB12ACB17C90F1C00C0B74F /* UIKit.framework in Frameworks */,
+				AEB12ACC17C90F1C00C0B74F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AEB12A9917C90F1C00C0B74F = {
+			isa = PBXGroup;
+			children = (
+				AEB12AAB17C90F1C00C0B74F /* AvCamTest */,
+				AEB12ACF17C90F1C00C0B74F /* AvCamTestTests */,
+				AEB12AA417C90F1C00C0B74F /* Frameworks */,
+				AEB12AA317C90F1C00C0B74F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AEB12AA317C90F1C00C0B74F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AEB12AA217C90F1C00C0B74F /* AvCamTest.app */,
+				AEB12AC817C90F1C00C0B74F /* AvCamTestTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AEB12AA417C90F1C00C0B74F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AEB12AE017C90F4800C0B74F /* AVFoundation.framework */,
+				AEB12AA517C90F1C00C0B74F /* UIKit.framework */,
+				AEB12AA717C90F1C00C0B74F /* Foundation.framework */,
+				AEB12AA917C90F1C00C0B74F /* CoreGraphics.framework */,
+				AEB12AC917C90F1C00C0B74F /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AEB12AAB17C90F1C00C0B74F /* AvCamTest */ = {
+			isa = PBXGroup;
+			children = (
+				AEB9884917D22ABC007DBFD0 /* SonicklePlayerViewController.h */,
+				AEB9884A17D22ABC007DBFD0 /* SonicklePlayerViewController.m */,
+				AEB12AB417C90F1C00C0B74F /* AppDelegate.h */,
+				AEB12AB517C90F1C00C0B74F /* AppDelegate.m */,
+				AEB12ABD17C90F1C00C0B74F /* MainStoryboard.storyboard */,
+				AEB12AC017C90F1C00C0B74F /* ViewController.h */,
+				AEB12AC117C90F1C00C0B74F /* ViewController.m */,
+				AEB12AAC17C90F1C00C0B74F /* Supporting Files */,
+				AEB12AE217C9F03B00C0B74F /* UIImage+scaleToSize.h */,
+				AEB12AE317C9F03B00C0B74F /* UIImage+scaleToSize.m */,
+				AEB9884617D1F220007DBFD0 /* Sonickle.h */,
+				AEB9884717D1F220007DBFD0 /* Sonickle.m */,
+				AEB9884C17D22ECC007DBFD0 /* SonickleGalleryViewController.h */,
+				AEB9884D17D22ECC007DBFD0 /* SonickleGalleryViewController.m */,
+			);
+			path = AvCamTest;
+			sourceTree = "<group>";
+		};
+		AEB12AAC17C90F1C00C0B74F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AEB12AAD17C90F1C00C0B74F /* AvCamTest-Info.plist */,
+				AEB12AAE17C90F1C00C0B74F /* InfoPlist.strings */,
+				AEB12AB117C90F1C00C0B74F /* main.m */,
+				AEB12AB317C90F1C00C0B74F /* AvCamTest-Prefix.pch */,
+				AEB12AB717C90F1C00C0B74F /* Default.png */,
+				AEB12AB917C90F1C00C0B74F /* Default@2x.png */,
+				AEB12ABB17C90F1C00C0B74F /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AEB12ACF17C90F1C00C0B74F /* AvCamTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				AEB12AD517C90F1C00C0B74F /* AvCamTestTests.h */,
+				AEB12AD617C90F1C00C0B74F /* AvCamTestTests.m */,
+				AEB12AD017C90F1C00C0B74F /* Supporting Files */,
+			);
+			path = AvCamTestTests;
+			sourceTree = "<group>";
+		};
+		AEB12AD017C90F1C00C0B74F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AEB12AD117C90F1C00C0B74F /* AvCamTestTests-Info.plist */,
+				AEB12AD217C90F1C00C0B74F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AEB12AA117C90F1C00C0B74F /* AvCamTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEB12ADA17C90F1C00C0B74F /* Build configuration list for PBXNativeTarget "AvCamTest" */;
+			buildPhases = (
+				AEB12A9E17C90F1C00C0B74F /* Sources */,
+				AEB12A9F17C90F1C00C0B74F /* Frameworks */,
+				AEB12AA017C90F1C00C0B74F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AvCamTest;
+			productName = AvCamTest;
+			productReference = AEB12AA217C90F1C00C0B74F /* AvCamTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AEB12AC717C90F1C00C0B74F /* AvCamTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEB12ADD17C90F1C00C0B74F /* Build configuration list for PBXNativeTarget "AvCamTestTests" */;
+			buildPhases = (
+				AEB12AC317C90F1C00C0B74F /* Sources */,
+				AEB12AC417C90F1C00C0B74F /* Frameworks */,
+				AEB12AC517C90F1C00C0B74F /* Resources */,
+				AEB12AC617C90F1C00C0B74F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AEB12ACE17C90F1C00C0B74F /* PBXTargetDependency */,
+			);
+			name = AvCamTestTests;
+			productName = AvCamTestTests;
+			productReference = AEB12AC817C90F1C00C0B74F /* AvCamTestTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AEB12A9A17C90F1C00C0B74F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Yunus Eren Guzel";
+			};
+			buildConfigurationList = AEB12A9D17C90F1C00C0B74F /* Build configuration list for PBXProject "AvCamTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AEB12A9917C90F1C00C0B74F;
+			productRefGroup = AEB12AA317C90F1C00C0B74F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AEB12AA117C90F1C00C0B74F /* AvCamTest */,
+				AEB12AC717C90F1C00C0B74F /* AvCamTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AEB12AA017C90F1C00C0B74F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEB12AB017C90F1C00C0B74F /* InfoPlist.strings in Resources */,
+				AEB12AB817C90F1C00C0B74F /* Default.png in Resources */,
+				AEB12ABA17C90F1C00C0B74F /* Default@2x.png in Resources */,
+				AEB12ABC17C90F1C00C0B74F /* Default-568h@2x.png in Resources */,
+				AEB12ABF17C90F1C00C0B74F /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEB12AC517C90F1C00C0B74F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEB12AD417C90F1C00C0B74F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AEB12AC617C90F1C00C0B74F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AEB12A9E17C90F1C00C0B74F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEB12AB217C90F1C00C0B74F /* main.m in Sources */,
+				AEB12AB617C90F1C00C0B74F /* AppDelegate.m in Sources */,
+				AEB12AC217C90F1C00C0B74F /* ViewController.m in Sources */,
+				AEB12AE417C9F03B00C0B74F /* UIImage+scaleToSize.m in Sources */,
+				AEB9884817D1F220007DBFD0 /* Sonickle.m in Sources */,
+				AEB9884B17D22ABC007DBFD0 /* SonicklePlayerViewController.m in Sources */,
+				AEB9884E17D22ECC007DBFD0 /* SonickleGalleryViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEB12AC317C90F1C00C0B74F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEB12AD717C90F1C00C0B74F /* AvCamTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AEB12ACE17C90F1C00C0B74F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AEB12AA117C90F1C00C0B74F /* AvCamTest */;
+			targetProxy = AEB12ACD17C90F1C00C0B74F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AEB12AAE17C90F1C00C0B74F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEB12AAF17C90F1C00C0B74F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AEB12ABD17C90F1C00C0B74F /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEB12ABE17C90F1C00C0B74F /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		AEB12AD217C90F1C00C0B74F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEB12AD317C90F1C00C0B74F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AEB12AD817C90F1C00C0B74F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AEB12AD917C90F1C00C0B74F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AEB12ADB17C90F1C00C0B74F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AvCamTest/AvCamTest-Prefix.pch";
+				INFOPLIST_FILE = "AvCamTest/AvCamTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AEB12ADC17C90F1C00C0B74F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AvCamTest/AvCamTest-Prefix.pch";
+				INFOPLIST_FILE = "AvCamTest/AvCamTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AEB12ADE17C90F1C00C0B74F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AvCamTest.app/AvCamTest";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AvCamTest/AvCamTest-Prefix.pch";
+				INFOPLIST_FILE = "AvCamTestTests/AvCamTestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		AEB12ADF17C90F1C00C0B74F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AvCamTest.app/AvCamTest";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AvCamTest/AvCamTest-Prefix.pch";
+				INFOPLIST_FILE = "AvCamTestTests/AvCamTestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AEB12A9D17C90F1C00C0B74F /* Build configuration list for PBXProject "AvCamTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEB12AD817C90F1C00C0B74F /* Debug */,
+				AEB12AD917C90F1C00C0B74F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEB12ADA17C90F1C00C0B74F /* Build configuration list for PBXNativeTarget "AvCamTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEB12ADB17C90F1C00C0B74F /* Debug */,
+				AEB12ADC17C90F1C00C0B74F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEB12ADD17C90F1C00C0B74F /* Build configuration list for PBXNativeTarget "AvCamTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEB12ADE17C90F1C00C0B74F /* Debug */,
+				AEB12ADF17C90F1C00C0B74F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AEB12A9A17C90F1C00C0B74F /* Project object */;
+}
