@@ -16,6 +16,7 @@
 {
     AVAudioPlayer *audioPlayer;
 }
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -46,6 +47,7 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
 	// Do any additional setup after loading the view.
+    
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
     [self.scrollView setContentSize:self.view.frame.size];
     [self.scrollView setMinimumZoomScale:0.1];
@@ -72,6 +74,7 @@
     if(self.sonickle != nil){
         [self configureViews];
     }
+    
 }
 
 - (void) goBack

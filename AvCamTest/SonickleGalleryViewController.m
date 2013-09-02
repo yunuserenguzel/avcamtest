@@ -31,7 +31,6 @@
 
 @end
 
-
 @interface SonickleGalleryViewController ()
 
 @end
@@ -77,7 +76,6 @@
 {
     NSString* fileName = [params objectAtIndex:0];
     int i = [[params objectAtIndex:1] intValue];
-    
     Sonickle* sonickle = [[SonickleProxy alloc] initWithSonickleFileName:fileName];
     SonickleThumbail* thumbnail = [[SonickleThumbail alloc] initWithSonickle:sonickle];
     [thumbnail setFrame:CGRectMake((i%3) * [self thumbnailSize].width, (i/3) * [self thumbnailSize].height, [self thumbnailSize].width, [self thumbnailSize].height)];

@@ -10,8 +10,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "MP3Converter.h"
 
-
-@interface ViewController : UIViewController <AVAudioRecorderDelegate>
+@interface ViewController : UIViewController <AVAudioRecorderDelegate,MP3ConverterDelegate>
 
 @end

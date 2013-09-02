@@ -44,8 +44,33 @@ typedef void (^ Block)();
     CFURLRef destinationURL;
     OSType   outputFormat;
     Float64  sampleRate;
+    UIImage* image;
 
 }
+
+- (void)convertDone:(MP3Converter *)converter
+{
+    NSData* soundData = [NSData dataWithContentsOfURL:[self tempConvertedSoundFileUrl]];
+    
+    image = [image imageByScalingAndCroppingForSize:CGSizeMake(612.0, 612.0)];
+    image = [UIImage imageWithData:UIImageJPEGRepresentation(image, 0.6)];
+    lastCreatedSonickle = [Sonickle sonickleWithImage:image andSound:soundData withId:[NSString stringWithFormat:@"sonickle%f",[NSDate timeIntervalSinceReferenceDate]]];
+    
+    [lastCreatedSonickle saveToFile];
+    
+    [self NSThreadedBlock:^{
+        [activityIndicator stopAnimating];
+        SonicklePlayerViewController* player = [[SonicklePlayerViewController alloc] init];
+        [player setSonickle:lastCreatedSonickle];
+        [self presentViewController:player animated:YES completion:nil];
+    }];
+}
+
+- (void)convertFailed:(MP3Converter *)converter
+{
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -213,23 +238,16 @@ typedef void (^ Block)();
          if(error == nil){
              [session stopRunning];
              NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
-             UIImage* image = [UIImage imageWithData:imageData];
+             image = [UIImage imageWithData:imageData];
              NSLog(@"w:%f, h:%f",image.size.width,image.size.height);
+             NSLog(@"input file: %@ outputfile:%@",[self tempSoundFileUrl].path,[self tempConvertedSoundFileUrl].path);
              
-             NSData* soundData = [NSData dataWithContentsOfURL:[self tempSoundFileUrl]];
+             [@"" writeToFile:[self tempConvertedSoundFileUrl].path atomically:YES encoding:NSStringEncodingConversionAllowLossy error:nil ];
+             MP3Converter *mp3Converter = [[MP3Converter alloc] initWithPreset:PRESET_CD]; mp3Converter.delegate = self;
+             [mp3Converter initializeLame];
+             [mp3Converter convertMP3WithFilePath:[self tempSoundFileUrl].path outputName:TempConvertedSoundFileName];
              
-             image = [image imageByScalingAndCroppingForSize:CGSizeMake(600.0, 800.0)];
              
-             lastCreatedSonickle = [Sonickle sonickleWithImage:image andSound:soundData withId:[NSString stringWithFormat:@"sonickle%f",[NSDate timeIntervalSinceReferenceDate]]];
-             
-             [lastCreatedSonickle saveToFile];
-             
-             [self NSThreadedBlock:^{
-                 [activityIndicator stopAnimating];
-                 SonicklePlayerViewController* player = [[SonicklePlayerViewController alloc] init];
-                 [player setSonickle:lastCreatedSonickle];
-                 [self presentViewController:player animated:YES completion:nil];
-             }];
          }
      }];
 }

@@ -57,6 +57,7 @@
     }
     [array addObject:fileName];
     [[NSUserDefaults standardUserDefaults] setObject:array forKey:SonicklesUserDefaultsKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     NSDictionary* file = [self dictionaryFromSonickle];
     [file writeToFile:fileName atomically:YES];
