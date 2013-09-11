@@ -9,6 +9,7 @@
 #import "SonickleGalleryViewController.h"
 #import "SonickleProxy.h"
 #import "SonicklePlayerViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface SonickleThumbail : UIImageView
 
@@ -25,6 +26,8 @@
     if(self = [super init]){
         self.sonickle = sonickle;
         self.image = sonickle.thumbnail;
+        [self.layer setBorderColor:[UIColor whiteColor].CGColor];
+        [self.layer setBorderWidth:1.0];
     }
     return self;
 }
@@ -48,7 +51,7 @@
 
 - (CGSize) thumbnailSize
 {
-    return CGSizeMake(96.0, 144.0);
+    return CGSizeMake(96.0, 96.0);
 }
 
 - (void)viewDidLoad

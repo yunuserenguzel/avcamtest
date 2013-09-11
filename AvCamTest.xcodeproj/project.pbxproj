@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE779D5417DDBA2F009E9D31 /* Home_icon_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = AE779D5217DDBA2F009E9D31 /* Home_icon_grey.png */; };
+		AE779D5717DDBA36009E9D31 /* cam_mic_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = AE779D5617DDBA36009E9D31 /* cam_mic_bar.png */; };
+		AE779D5917DDBA41009E9D31 /* Home_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AE779D5817DDBA41009E9D31 /* Home_Icon.png */; };
+		AE779D5C17DDF0F7009E9D31 /* SonicklePreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE779D5B17DDF0F6009E9D31 /* SonicklePreviewViewController.m */; };
+		AE8EEDC817DC851D001CD841 /* SonickleRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8EEDC717DC851D001CD841 /* SonickleRecorderViewController.m */; };
+		AE8EEDCB17DC8541001CD841 /* SonickleMediaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8EEDCA17DC8541001CD841 /* SonickleMediaManager.m */; };
+		AE8EEDCD17DC94D4001CD841 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8EEDCC17DC94D4001CD841 /* QuartzCore.framework */; };
 		AEB12AA617C90F1C00C0B74F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB12AA517C90F1C00C0B74F /* UIKit.framework */; };
 		AEB12AA817C90F1C00C0B74F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB12AA717C90F1C00C0B74F /* Foundation.framework */; };
 		AEB12AAA17C90F1C00C0B74F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB12AA917C90F1C00C0B74F /* CoreGraphics.framework */; };
@@ -37,6 +44,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE779D5217DDBA2F009E9D31 /* Home_icon_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home_icon_grey.png; sourceTree = "<group>"; };
+		AE779D5617DDBA36009E9D31 /* cam_mic_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_mic_bar.png; sourceTree = "<group>"; };
+		AE779D5817DDBA41009E9D31 /* Home_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home_Icon.png; sourceTree = "<group>"; };
+		AE779D5A17DDF0F6009E9D31 /* SonicklePreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonicklePreviewViewController.h; sourceTree = "<group>"; };
+		AE779D5B17DDF0F6009E9D31 /* SonicklePreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonicklePreviewViewController.m; sourceTree = "<group>"; };
+		AE779D5D17DDF240009E9D31 /* TypeDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeDefs.h; sourceTree = "<group>"; };
+		AE8EEDC617DC851D001CD841 /* SonickleRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonickleRecorderViewController.h; sourceTree = "<group>"; };
+		AE8EEDC717DC851D001CD841 /* SonickleRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonickleRecorderViewController.m; sourceTree = "<group>"; };
+		AE8EEDC917DC8541001CD841 /* SonickleMediaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonickleMediaManager.h; sourceTree = "<group>"; };
+		AE8EEDCA17DC8541001CD841 /* SonickleMediaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonickleMediaManager.m; sourceTree = "<group>"; };
+		AE8EEDCC17DC94D4001CD841 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AEB12AA217C90F1C00C0B74F /* AvCamTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvCamTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB12AA517C90F1C00C0B74F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AEB12AA717C90F1C00C0B74F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -87,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE8EEDCD17DC94D4001CD841 /* QuartzCore.framework in Frameworks */,
 				AEDBFE5C17D4F5FA0063DF18 /* CoreMedia.framework in Frameworks */,
 				AEB9886517D39C3C007DBFD0 /* CoreFoundation.framework in Frameworks */,
 				AEB9886317D39C21007DBFD0 /* CoreAudio.framework in Frameworks */,
@@ -124,6 +143,7 @@
 		AEB12AA417C90F1C00C0B74F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE8EEDCC17DC94D4001CD841 /* QuartzCore.framework */,
 				AEDBFE5B17D4F5FA0063DF18 /* CoreMedia.framework */,
 				AEB9886417D39C3C007DBFD0 /* CoreFoundation.framework */,
 				AEB9886217D39C21007DBFD0 /* CoreAudio.framework */,
@@ -140,6 +160,9 @@
 		AEB12AAB17C90F1C00C0B74F /* AvCamTest */ = {
 			isa = PBXGroup;
 			children = (
+				AE779D5617DDBA36009E9D31 /* cam_mic_bar.png */,
+				AE779D5817DDBA41009E9D31 /* Home_Icon.png */,
+				AE779D5217DDBA2F009E9D31 /* Home_icon_grey.png */,
 				AEDBFE4517D4F5380063DF18 /* AudioConverterKit */,
 				AEB9884917D22ABC007DBFD0 /* SonicklePlayerViewController.h */,
 				AEB9884A17D22ABC007DBFD0 /* SonicklePlayerViewController.m */,
@@ -157,6 +180,13 @@
 				AEB9885017D3300D007DBFD0 /* SonickleProxy.m */,
 				AEB9884C17D22ECC007DBFD0 /* SonickleGalleryViewController.h */,
 				AEB9884D17D22ECC007DBFD0 /* SonickleGalleryViewController.m */,
+				AE8EEDC617DC851D001CD841 /* SonickleRecorderViewController.h */,
+				AE8EEDC717DC851D001CD841 /* SonickleRecorderViewController.m */,
+				AE8EEDC917DC8541001CD841 /* SonickleMediaManager.h */,
+				AE8EEDCA17DC8541001CD841 /* SonickleMediaManager.m */,
+				AE779D5A17DDF0F6009E9D31 /* SonicklePreviewViewController.h */,
+				AE779D5B17DDF0F6009E9D31 /* SonicklePreviewViewController.m */,
+				AE779D5D17DDF240009E9D31 /* TypeDefs.h */,
 			);
 			path = AvCamTest;
 			sourceTree = "<group>";
@@ -282,6 +312,9 @@
 				AEB12ABC17C90F1C00C0B74F /* Default-568h@2x.png in Resources */,
 				AEB12ABF17C90F1C00C0B74F /* MainStoryboard.storyboard in Resources */,
 				AEDBFE5817D4F5380063DF18 /* AudioConverterKitforiOS.pdf in Resources */,
+				AE779D5417DDBA2F009E9D31 /* Home_icon_grey.png in Resources */,
+				AE779D5717DDBA36009E9D31 /* cam_mic_bar.png in Resources */,
+				AE779D5917DDBA41009E9D31 /* Home_Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +335,9 @@
 				AEB9885117D3300D007DBFD0 /* SonickleProxy.m in Sources */,
 				AEDBFE5717D4F5380063DF18 /* AudioConverter.m in Sources */,
 				AEDBFE5A17D4F5380063DF18 /* MP3Converter.m in Sources */,
+				AE8EEDC817DC851D001CD841 /* SonickleRecorderViewController.m in Sources */,
+				AE8EEDCB17DC8541001CD841 /* SonickleMediaManager.m in Sources */,
+				AE779D5C17DDF0F7009E9D31 /* SonicklePreviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -72,4 +72,18 @@
     return result;
 }
 
+- (UIImage*) cropForRect:(CGRect)rect
+{
+//    UIGraphicsBeginImageContextWithOptions(rect.size,YES,2.0);
+//    CGFloat x = -rect.origin.x;
+//    CGFloat y = -rect.origin.y;
+//    [self drawInRect:CGRectMake(x, y, self.size.width, self.size.height)];
+//    UIImage* croppedImage = UIGraphicsGetImageFromCurrentImageContext();
+//    
+    CGImageRef imageRef = CGImageCreateWithImageInRect([self CGImage], rect);
+    UIImage* croppedImage = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    return croppedImage;
+}
+
 @end

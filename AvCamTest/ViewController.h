@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
-#import <Foundation/Foundation.h>
-#import <AudioToolbox/AudioToolbox.h>
-#import "MP3Converter.h"
+#import "SonickleMediaManager.h"
 
-@interface ViewController : UIViewController <AVAudioRecorderDelegate,MP3ConverterDelegate>
+@interface ViewController : UIViewController <SonickleMediaProtocol>
+
+@property SonickleMediaManager* sonickleMediaManager;
 
 @end

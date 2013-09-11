@@ -12,4 +12,6 @@
 
 - (UIImage*)imageByScalingAndCroppingForSize:(CGSize)targetSize;
 
+- (UIImage*) cropForRect:(CGRect)rect;
+
 @end

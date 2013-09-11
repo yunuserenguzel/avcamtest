@@ -11,13 +11,8 @@
 #import "Sonickle.h"
 #import "SonicklePlayerViewController.h"
 #import "SonickleGalleryViewController.h"
+#import "SonickleRecorderViewController.h"
 
-#define TempSoundFileName @"sound.caf"
-#define TempConvertedSoundFileName @"converted_sound.caf"
-/*
- http://www.tekritisoftware.com/convert-caf-to-mp3-in-iOS
- http://lame.sourceforge.net/
- */
 
 typedef void (^ Block)();
 
@@ -27,49 +22,30 @@ typedef void (^ Block)();
 
 @implementation ViewController
 {
-    AVCaptureSession* session;
-    AVCaptureDevice* device;
     UIView* cameraView;
-    AVCaptureStillImageOutput* stillImageOutput;
     UIImageView* imageView;
     UIActivityIndicatorView* activityIndicator;
-    
-    AVAudioRecorder *audioRecorder;
-    
     NSInteger tapIndex;
-    
     Sonickle* lastCreatedSonickle;
-    
-    CFURLRef sourceURL;
-    CFURLRef destinationURL;
-    OSType   outputFormat;
-    Float64  sampleRate;
-    UIImage* image;
-
+    UIImage* lastCapturedImage;
+    NSData* lastRecordedAuido;
 }
 
-- (void)convertDone:(MP3Converter *)converter
+- (void)manager:(SonickleMediaManager *)manager audioDataReady:(NSData *)data
 {
-    NSData* soundData = [NSData dataWithContentsOfURL:[self tempConvertedSoundFileUrl]];
+    NSLog(@"ViewController: auido data is ready from manager");
+    lastRecordedAuido = data;
+//    lastCreatedSonickle = [Sonickle sonickleWithImage:image andSound:data withId:[NSString stringWithFormat:@"sonickle%f",[NSDate timeIntervalSinceReferenceDate]]];
+//    
+//    [lastCreatedSonickle saveToFile];
     
-    image = [image imageByScalingAndCroppingForSize:CGSizeMake(612.0, 612.0)];
-    image = [UIImage imageWithData:UIImageJPEGRepresentation(image, 0.6)];
-    lastCreatedSonickle = [Sonickle sonickleWithImage:image andSound:soundData withId:[NSString stringWithFormat:@"sonickle%f",[NSDate timeIntervalSinceReferenceDate]]];
-    
-    [lastCreatedSonickle saveToFile];
-    
-    [self NSThreadedBlock:^{
-        [activityIndicator stopAnimating];
-        SonicklePlayerViewController* player = [[SonicklePlayerViewController alloc] init];
-        [player setSonickle:lastCreatedSonickle];
-        [self presentViewController:player animated:YES completion:nil];
-    }];
+//    [self NSThreadedBlock:^{
+//        SonicklePlayerViewController* player = [[SonicklePlayerViewController alloc] init];
+//        [player setSonickle:lastCreatedSonickle];
+//        [self presentViewController:player animated:YES completion:nil];
+//    }];
 }
 
-- (void)convertFailed:(MP3Converter *)converter
-{
-    
-}
 
 - (void)viewDidLoad
 {
@@ -79,8 +55,10 @@ typedef void (^ Block)();
     
     lastCreatedSonickle = nil;
     
-    [self initializeCamera];
-    [self initializeAudio];
+    cameraView = [[UIView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:cameraView];
+    self.sonickleMediaManager = [[SonickleMediaManager alloc] initWithView:cameraView];
+    [self.sonickleMediaManager setDelegate:self];
     UITapGestureRecognizer* tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedToScreen)];
     
     [self.view addGestureRecognizer:tapRecognizer];
@@ -99,6 +77,12 @@ typedef void (^ Block)();
     [button addTarget:self action:@selector(openGallery) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
+    button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setFrame:CGRectMake(self.view.frame.size.width - 100.0, 0.0, 100.0, 44.0)];
+    [button setTitle:@"Record" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(openRecorder) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
     
     activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [activityIndicator setFrame:self.view.frame];
@@ -106,6 +90,10 @@ typedef void (^ Block)();
     
 }
 
+- (void) openRecorder
+{
+    [self presentViewController:[[SonickleRecorderViewController alloc] init] animated:YES completion:nil];
+}
 
 
 - (void) openGallery
@@ -115,102 +103,32 @@ typedef void (^ Block)();
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [[[NSThread alloc] initWithTarget:session selector:@selector(startRunning) object:nil] start];
+    [self.sonickleMediaManager startCamera];
 }
 
 - (void) viewDidDisappear:(BOOL)animated
 {
-    [session stopRunning];
-}
-
-- (NSURL*) tempConvertedSoundFileUrl
-{
-    
-    NSArray *dirPaths;
-    NSString *docsDir;
-    
-    dirPaths = NSSearchPathForDirectoriesInDomains(
-                                                   NSDocumentDirectory, NSUserDomainMask, YES);
-    docsDir = [dirPaths objectAtIndex:0];
-    NSString *soundFilePath = [docsDir
-                               stringByAppendingPathComponent:TempConvertedSoundFileName];
-    
-    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-    
-    return soundFileURL;
-}
-
-- (NSURL*) tempSoundFileUrl
-{
-    NSArray *dirPaths;
-    NSString *docsDir;
-    
-    dirPaths = NSSearchPathForDirectoriesInDomains(
-                                                   NSDocumentDirectory, NSUserDomainMask, YES);
-    docsDir = [dirPaths objectAtIndex:0];
-    NSString *soundFilePath = [docsDir
-                               stringByAppendingPathComponent:TempSoundFileName];
-    
-    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-    
-    return soundFileURL;
-}
-
-- (void) initializeAudio
-{
-    
-    NSDictionary *recordSettings = [NSDictionary
-                                    dictionaryWithObjectsAndKeys:
-                                    [NSNumber numberWithInt:AVAudioQualityHigh],
-                                    AVEncoderAudioQualityKey,
-                                    [NSNumber numberWithInt:64],
-                                    AVEncoderBitRateKey,
-                                    [NSNumber numberWithInt: 2],
-                                    AVNumberOfChannelsKey,
-                                    [NSNumber numberWithFloat:44100.0],
-                                    AVSampleRateKey,
-                                    nil];
-    
-    NSError *error = nil;
-    
-    audioRecorder = [[AVAudioRecorder alloc]
-                     initWithURL:[self tempSoundFileUrl]
-                     settings:recordSettings
-                     error:&error];
-    if (error)
-    {
-        NSLog(@"error: %@", [error localizedDescription]);
-        
-    } else {
-        [audioRecorder prepareToRecord];
-    }
-}
-
-- (void) saveToCameraRoll
-{
-    if(imageView.image != nil){
-        UIImageWriteToSavedPhotosAlbum(imageView.image, nil, nil, nil);
-    }
+    [self.sonickleMediaManager stopCamera];
 }
 
 
 - (void) tappedToScreen
 {
     if(tapIndex % 3 == 0){
-        [self recordAudio];
+        [self.sonickleMediaManager startAuidoRecording];
     }
     else if(tapIndex % 3 == 1){
         [self performSelector:@selector(takePicture) withObject:nil afterDelay:0.5];
-        [self stop];
+        [self.sonickleMediaManager stopAudioRecording];
     }
     else if(tapIndex % 3 == 2){
         [UIView animateWithDuration:0.5 animations:^{
             imageView.transform = CGAffineTransformMakeScale(0.5, 0.5);
             imageView.alpha = 0.0;
         }];
-        [self stop];
+        [self.sonickleMediaManager stopAudioRecording];
         [self NSThreadedBlock:^{
-            [session startRunning]; 
+            [self.sonickleMediaManager stopCamera];
         }];
     }
     tapIndex++;
@@ -220,36 +138,42 @@ typedef void (^ Block)();
 
 - (void) takePicture
 {
-    AVCaptureConnection *videoConnection = nil;
     [activityIndicator startAnimating];
-    for (AVCaptureConnection *connection in stillImageOutput.connections) {
-        for (AVCaptureInputPort *port in [connection inputPorts]) {
-            if ([[port mediaType] isEqualToString:AVMediaTypeVideo] ) {
-                videoConnection = connection;
-                break;
-            }
-        }
-        if (videoConnection) { break; }
-    }
-    
-    [stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection
-                                                  completionHandler: ^(CMSampleBufferRef imageSampleBuffer, NSError *error)
-     {
-         if(error == nil){
-             [session stopRunning];
-             NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
-             image = [UIImage imageWithData:imageData];
-             NSLog(@"w:%f, h:%f",image.size.width,image.size.height);
-             NSLog(@"input file: %@ outputfile:%@",[self tempSoundFileUrl].path,[self tempConvertedSoundFileUrl].path);
-             
-             [@"" writeToFile:[self tempConvertedSoundFileUrl].path atomically:YES encoding:NSStringEncodingConversionAllowLossy error:nil ];
-             MP3Converter *mp3Converter = [[MP3Converter alloc] initWithPreset:PRESET_CD]; mp3Converter.delegate = self;
-             [mp3Converter initializeLame];
-             [mp3Converter convertMP3WithFilePath:[self tempSoundFileUrl].path outputName:TempConvertedSoundFileName];
-             
-             
-         }
-     }];
+    [self.sonickleMediaManager takePictureWithCompletionBlock:^(UIImage *image) {
+        lastCapturedImage = image;
+        imageView.image = image;
+        [activityIndicator stopAnimating];
+    }];
+//    AVCaptureConnection *videoConnection = nil;
+//    [activityIndicator startAnimating];
+//    for (AVCaptureConnection *connection in stillImageOutput.connections) {
+//        for (AVCaptureInputPort *port in [connection inputPorts]) {
+//            if ([[port mediaType] isEqualToString:AVMediaTypeVideo] ) {
+//                videoConnection = connection;
+//                break;
+//            }
+//        }
+//        if (videoConnection) { break; }
+//    }
+//    
+//    [stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection
+//                                                  completionHandler: ^(CMSampleBufferRef imageSampleBuffer, NSError *error)
+//     {
+//         if(error == nil){
+//             [session stopRunning];
+//             NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
+//             image = [UIImage imageWithData:imageData];
+//             NSLog(@"w:%f, h:%f",image.size.width,image.size.height);
+//             NSLog(@"input file: %@ outputfile:%@",[self tempSoundFileUrl].path,[self tempConvertedSoundFileUrl].path);
+//             
+//             [@"" writeToFile:[self tempConvertedSoundFileUrl].path atomically:YES encoding:NSStringEncodingConversionAllowLossy error:nil ];
+//             MP3Converter *mp3Converter = [[MP3Converter alloc] initWithPreset:PRESET_CD]; mp3Converter.delegate = self;
+//             [mp3Converter initializeLame];
+//             [mp3Converter convertMP3WithFilePath:[self tempSoundFileUrl].path outputName:TempConvertedSoundFileName];
+//             
+//             
+//         }
+//     }];
 }
 
 - (void) NSThreadedBlock:(Block)block
@@ -262,45 +186,6 @@ typedef void (^ Block)();
     block();
 }
 
-- (void) initializeCamera
-{
-    cameraView = [[UIView alloc] initWithFrame:self.view.frame];
-    [cameraView setBackgroundColor:[UIColor clearColor]];
-    [self.view addSubview:cameraView];
-    
-    
-    session = [[AVCaptureSession alloc] init];
-    device = [[AVCaptureDevice devices] objectAtIndex:0];
-    
-    session.sessionPreset = AVCaptureSessionPresetPhoto;
-
-    AVCaptureDeviceInput *captureDeviceInput = [[AVCaptureDeviceInput alloc] initWithDevice:device error:nil];
-    
-    if ([session canAddInput:captureDeviceInput]) {
-        [session addInput:captureDeviceInput];
-    }
-    else {
-        // Handle the failure.
-    }
-    
-    AVCaptureDeviceInput* audioInput = [[AVCaptureDeviceInput alloc] initWithDevice:[[AVCaptureDevice devices] objectAtIndex:2] error:nil];
-    if ([session canAddInput:audioInput]) {
-        [session addInput:audioInput];
-    }
-    else {
-        // Handle the failure.
-    }
-    [session startRunning];
-    
-    AVCaptureVideoPreviewLayer* layer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
-    [layer setFrame:CGRectMake(0.0, 0.0, cameraView.frame.size.width, cameraView.frame.size.height)];
-    
-    [cameraView.layer addSublayer:layer];
-
-    stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
-    [session addOutput:stillImageOutput];
-    
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -309,50 +194,6 @@ typedef void (^ Block)();
 }
 
 
--(void) recordAudio
-{
-    if (!audioRecorder.recording) {
-        [audioRecorder record];
-        NSLog(@"start audio recording..");
-    }
-}
--(void)stop
-{
-    if (audioRecorder.recording) {
-        [audioRecorder stop];
-        NSLog(@"stop audio recording..");
-    }
-//    else if (audioPlayer.playing) {
-//        [audioPlayer stop];
-//    }
-}
-
-
--(void)audioPlayerDidFinishPlaying:
-(AVAudioPlayer *)player successfully:(BOOL)flag
-{
-    
-}
--(void)audioPlayerDecodeErrorDidOccur:
-(AVAudioPlayer *)player
-                                error:(NSError *)error
-{
-    NSLog(@"Decode Error occurred");
-}
--(void)audioRecorderDidFinishRecording:
-(AVAudioRecorder *)recorder
-                          successfully:(BOOL)flag
-
-{
-    
-    NSLog(@"record finish %d",flag);
-}
--(void)audioRecorderEncodeErrorDidOccur:
-(AVAudioRecorder *)recorder
-                                  error:(NSError *)error
-{
-    NSLog(@"Encode Error occurred");
-}
 
 //
 //
